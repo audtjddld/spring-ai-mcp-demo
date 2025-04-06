@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: module-server
+  main:
+    banner-mode: off
+
+logging:
+  pattern:
+    console:
