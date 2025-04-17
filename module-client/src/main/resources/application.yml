@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: module-client
+
+server:
+  port: 8000

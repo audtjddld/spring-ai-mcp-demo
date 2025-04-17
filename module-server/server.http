@@ -1,0 +1,29 @@
+### save homework
+
+POST localhost:8080/mcp/message
+Content-Type: application/json; charset=utf-8
+
+{
+  "message": {
+    "toolCalls": [
+      {
+        "id": "call-1234",
+        "name": "save",
+        "parameters": {
+          "title": "abc",
+          "description": "description",
+          "date": "2023-10-01"
+        }
+      }
+    ]
+  }
+}
+
+### chat api
+
+POST localhost:8080/api/chat
+Content-Type: application/json; charset=utf-8
+
+{
+  "message": "숙제 등록하는 방법 알려줘"
+}

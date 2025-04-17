@@ -1,0 +1,15 @@
+### 질의
+POST localhost:8000/mcp/message
+Content-Type: application/json; charset=utf-8
+
+{
+  "message": {
+    "toolCalls": [
+      {
+        "id": "call-1234",
+        "name": "findAllHomework",
+        "parameters": {}
+      }
+    ]
+  }
+}

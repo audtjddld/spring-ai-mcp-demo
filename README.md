@@ -13,7 +13,7 @@ Spring Boot와 Java 21로 구축된 Model Context Protocol(MCP) 서버 구현입
 
 ## Technologies
 
-- Java 21
+- Java 20
 - Spring Boot 3.4.4
 - Spring AI (Model Context Protocol)
 - Project Lombok
@@ -23,7 +23,7 @@ Spring Boot와 Java 21로 구축된 Model Context Protocol(MCP) 서버 구현입
 
 ### Prerequisites
 
-- Java 21 or higher
+- Java 20
 - Gradle
 
 ### Installation
@@ -103,29 +103,19 @@ Postman을 사용하여 MCP 서버의 엔드포인트를 테스트할 수 있습
 
 ```json
 {
-   "message": {
-      "toolCalls": [
-         {
-            "id": "call-1234",
-            "name": "findAllHomework",
-            "parameters": {}
-         }
-      ]
-   }
+  "message": {
+    "toolCalls": [
+      {
+        "id": "call-1234",
+        "name": "findAllHomework",
+        "parameters": {}
+      }
+    ]
+  }
 }
 ```
 
-
 응답은 도구 실행 결과를 포함하는 JSON 객체를 반환합니다.
-
-
-
-
-
-
-
-
-
 
 ## Usage with MCP Clients
 
