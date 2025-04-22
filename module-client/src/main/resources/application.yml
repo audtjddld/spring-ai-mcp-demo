@@ -1,6 +1,35 @@
 spring:
   application:
-    name: module-client
+    name: mcp-client
+
+  ai:
+    openai:
+      api-key: '${OPENAI_API_KEY}'
+      base-url: '${OPENAI_API_URL}'
+      chat:
+        options:
+          model: gpt-4-o
+    mcp:
+      client:
+        enabled: true
+        name: mcp-client
+        version: 1.0.0
+        request-timeout: 30s
+        type: ASYNC
+        sse:
+          connections:
+            mcp-homework-server:
+              url: http://localhost:8080
+        toolcallback:
+          enabled: true
 
 server:
   port: 8000
+
+
+logging:
+  level:
+    io.netty: DEBUG
+    io.netty.resolver.dns: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.web.reactive: DEBUG

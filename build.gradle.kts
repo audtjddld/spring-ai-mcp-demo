@@ -29,7 +29,7 @@ allprojects {
         systemProperty("spring.profiles.active", "test")
     }
 
-    extra["springAiVersion"] = "1.0.0-M6"
+    extra["springAiVersion"] = "1.0.0-M7"
 
     dependencyManagement {
         imports {

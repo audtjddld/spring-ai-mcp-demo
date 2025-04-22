@@ -1,29 +1,25 @@
-### save homework
+### find all
 
-POST localhost:8080/mcp/message
-Content-Type: application/json; charset=utf-8
+POST http://localhost:8080/mcp/messages?tool=findAll&sessionId=63ea1241-84bd-4a00-8cfb-a30d1965f582
+Accept: text/event-stream
+Connection: keep-alive
 
-{
-  "message": {
-    "toolCalls": [
-      {
-        "id": "call-1234",
-        "name": "save",
-        "parameters": {
-          "title": "abc",
-          "description": "description",
-          "date": "2023-10-01"
-        }
-      }
-    ]
-  }
-}
 
 ### chat api
-
-POST localhost:8080/api/chat
-Content-Type: application/json; charset=utf-8
+POST http://localhost:8080/mcp/messages
+Content-Type: application/json
+Accept: application/json
 
 {
-  "message": "숙제 등록하는 방법 알려줘"
+  "jsonrpc": "2.0",
+  "method": "callTool",
+  "params": {
+    "tool": "save",
+    "arguments": {
+      "title": "HW1",
+      "description": "Desc1",
+      "date": "2025-04-20"
+    }
+  },
+  "id": 1
 }

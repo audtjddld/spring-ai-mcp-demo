@@ -1,15 +1,4 @@
-### 질의
-POST localhost:8000/mcp/message
-Content-Type: application/json; charset=utf-8
-
-{
-  "message": {
-    "toolCalls": [
-      {
-        "id": "call-1234",
-        "name": "findAllHomework",
-        "parameters": {}
-      }
-    ]
-  }
-}
+### test
+GET localhost:8000/v1/test?prompt=숙제가 얼마나 많이 등록되어 있나요?
+Accept: text/event-stream
+Connection: keep-alive

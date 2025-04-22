@@ -4,15 +4,14 @@ plugins {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.ai:spring-ai-mcp-client-spring-boot-starter")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("io.netty:netty-resolver-dns-native-macos:4.1.119.Final:osx-aarch_64")
+    implementation("org.springframework.ai:spring-ai-starter-mcp-client-webflux")
+    implementation("org.springframework.ai:spring-ai-starter-model-openai")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("org.junit.platform:junit-platform-launcher")
 }
 
-springBoot {
-    mainClass.set("com.example.mcp.client.McpClientApplicationKt")
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

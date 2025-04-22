@@ -5,16 +5,10 @@ plugins {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.ai:spring-ai-mcp-server-webmvc-spring-boot-starter")
-    implementation("org.springframework.ai:spring-ai-openai-spring-boot-starter")
+    implementation("org.springframework.ai:spring-ai-starter-mcp-server-webflux")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    implementation("com.h2database:h2")
+    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
+    implementation("io.r2dbc:r2dbc-h2")
+    runtimeOnly("com.h2database:h2")
 }
-
-springBoot {
-    mainClass.set("com.example.mcp.server.McpServerApplicationKt")
-}
-

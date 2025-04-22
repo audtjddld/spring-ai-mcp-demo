@@ -1,19 +1,22 @@
 package com.example.mcp.client.config
 
-import com.example.mcp.client.service.HomeworkServiceTool
+import org.springframework.ai.chat.client.ChatClient
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor
 import org.springframework.ai.tool.ToolCallbackProvider
-import org.springframework.ai.tool.method.MethodToolCallbackProvider
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
 class McpClientConfig {
+
     @Bean
-    fun homeworkTools(homeworkServiceTool: HomeworkServiceTool): ToolCallbackProvider {
-        System.err.println("🛠️ MCP Tool 등록됨: HomeworkServiceTool")
-        return MethodToolCallbackProvider
-            .builder()
-            .toolObjects(homeworkServiceTool)
+    fun chatClient(
+        chatClientBuilder: ChatClient.Builder,
+        tools: ToolCallbackProvider
+    ): ChatClient {
+        return chatClientBuilder
+            .defaultTools(tools)
+            .defaultAdvisors(SimpleLoggerAdvisor())
             .build()
     }
 }

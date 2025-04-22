@@ -6,31 +6,40 @@ spring:
     name: mcp-homework-server
 
   ai:
-    openai:
-      api-key: '${OPENAI_API_KEY}'
-      base-url: '${OPENAI_API_URL}'
 
     mcp:
       server:
         enabled: true
         name: mcp-homework-server
         version: 1.0.0
-        type: SYNC
-        sse-mssage-endpoint: /mcp/message
+        type: ASYNC
+        sse-message-endpoint: /mcp/messages
 
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
+  r2dbc:
+    url: r2dbc:h2:mem:///testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
-  jpa:
-    hibernate:
-      ddl-auto: update  # create, update, validate, none
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-  h2:
-    console:
+    pool:
       enabled: true
-      path: /h2-console
+      initial-size: 5
+      max-size: 10
+      max-idle-time: 30m
+
+    h2:
+      console:
+        enabled: true
+        path: /h2-console
+    sql:
+      init:
+        mode: always
+        platform: h2
+        encoding: UTF-8
+        schema: classpath:schema.sql
+        data: classpath:data.sql
+
+logging:
+  level:
+    org.springframework.ai: TRACE
+    org.springframework.web: TRACE
+    org.springframework.web.reactive: TRACE
+    io.r2dbc: DEBUG
