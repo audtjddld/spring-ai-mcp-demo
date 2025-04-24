@@ -1,0 +1,22 @@
+### 할일 개수 조회
+GET localhost:8000/v1/test?prompt=할일이 얼마나 많이 등록되어 있나요?
+Accept: text/event-stream
+Connection: keep-alive
+
+
+### 할일 상세 조회
+GET localhost:8000/v1/test?prompt=등록된 할일 리스트 어떤 것들이 있어?
+Accept: text/event-stream
+Connection: keep-alive
+
+
+### 할일 등록
+GET localhost:8000/v1/test?prompt=할일을 등록해줘, 할일은 청소이고, 방청소하는거야, 날짜는 4월 24일이야
+Accept: text/event-stream
+Connection: keep-alive
+
+
+### 할일 조회 날짜
+GET localhost:8000/v1/test?prompt=25년 4월 24일에 어떤 일정이 있어?
+Accept: text/event-stream
+Connection: keep-alive
