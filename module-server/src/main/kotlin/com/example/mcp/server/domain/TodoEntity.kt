@@ -1,12 +1,11 @@
-package com.example.mcp.server.dao
+package com.example.mcp.server.domain
 
-import com.example.mcp.server.domain.Homework
 import java.time.LocalDateTime
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
-@Table("homework")
-data class HomeworkEntity(
+@Table("todo")
+data class TodoEntity(
     @Id
     val id: Long? = null,
     var title: String,
@@ -15,14 +14,14 @@ data class HomeworkEntity(
     val regDateTime: LocalDateTime? = LocalDateTime.now(),
     val lastUpdateTime: LocalDateTime? = null,
 ) {
-    fun updateDetails(title: String, description: String, date: String) = copy(
+    fun update(title: String, description: String, date: String) = copy(
         title = title,
         description = description,
         date = date,
         lastUpdateTime = LocalDateTime.now()
     )
 
-    fun toHomework() = Homework(
+    fun toHomework() = TodoModel(
         id = id!!,
         title = title,
         description = description,
@@ -30,7 +29,7 @@ data class HomeworkEntity(
     )
 
     companion object {
-        fun of(title: String, description: String, date: String) = HomeworkEntity(
+        fun of(title: String, description: String, date: String) = TodoEntity(
             title = title,
             description = description,
             date = date

@@ -3,14 +3,14 @@ server:
 
 spring:
   application:
-    name: mcp-homework-server
+    name: mcp-todo-server
 
   ai:
 
     mcp:
       server:
         enabled: true
-        name: mcp-homework-server
+        name: mcp-todo-server
         version: 1.0.0
         type: ASYNC
         sse-message-endpoint: /mcp/messages

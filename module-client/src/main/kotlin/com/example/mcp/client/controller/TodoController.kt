@@ -13,7 +13,7 @@ import reactor.util.retry.Retry
 
 @RestController
 @RequestMapping("/v1")
-class HomeworkController(
+class TodoController(
     private val chatClient: ChatClient,
 ) {
 
@@ -26,9 +26,11 @@ class HomeworkController(
 
         return this.chatClient.prompt(pt).stream().content()
             .bufferUntil { it.endsWith(".") || it.endsWith("!") || it.endsWith("?") }
+            .delayElements(Duration.ofSeconds(2))
             .map { chunks -> chunks.joinToString("").trim() }
             .retryWhen(
-                Retry.backoff(3, Duration.ofSeconds(2)).filter { it is WebClientResponseException.TooManyRequests })
+                Retry.backoff(3, Duration.ofSeconds(2))
+                    .filter { it is WebClientResponseException.TooManyRequests })
             .onErrorResume { error ->
                 when (error) {
                     is WebClientResponseException.TooManyRequests -> {
