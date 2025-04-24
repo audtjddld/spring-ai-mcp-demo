@@ -10,12 +10,11 @@ import org.springframework.ai.tool.annotation.Tool
 import org.springframework.ai.tool.annotation.ToolParam
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
 @Service
 class HomeworkService(
-    private val homeworkRepository: HomeworkRepository
+    private val homeworkRepository: HomeworkRepository,
 ) {
     private val logger = Logger.getLogger(HomeworkService::class.java.name)
 
@@ -26,17 +25,15 @@ class HomeworkService(
     }
 
     @Tool(name = "findAll", description = "숙제를 전체 조회하는 기능을 제공합니다.")
-    fun findAll(): Flux<Homework> {
+    fun findAll(): List<Homework> {
         logger.info(">>>>>>>>>>>>>>>>>>>>> 실행 됨")
-        return homeworkRepository.findAll().map {
-            it.toHomework()
-        }
+        return homeworkRepository.findAll().collectList().block()?.map { it.toHomework() } ?: emptyList()
     }
 
     @Tool(name = "update", description = "숙제를 수정하는 기능을 제공합니다.")
     fun update(
         @ToolParam(description = "숙제 ID") id: Long,
-        @ToolParam(description = "제목, 설명, 날짜") request: Update
+        @ToolParam(description = "제목, 설명, 날짜") request: Update,
     ): Mono<Unit> {
         return homeworkRepository.findById(id)
             .switchIfEmpty(Mono.error(IllegalArgumentException("Invalid UID")))

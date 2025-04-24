@@ -9,11 +9,11 @@ import org.springframework.data.relational.core.mapping.Table
 data class HomeworkEntity(
     @Id
     val id: Long? = null,
-    val title: String,
-    val description: String,
-    val date: String,
+    var title: String,
+    var description: String,
+    var date: String,
     val regDateTime: LocalDateTime? = LocalDateTime.now(),
-    val lastUpdateTime: LocalDateTime? = null
+    val lastUpdateTime: LocalDateTime? = null,
 ) {
     fun updateDetails(title: String, description: String, date: String) = copy(
         title = title,
@@ -27,8 +27,6 @@ data class HomeworkEntity(
         title = title,
         description = description,
         date = date,
-        regDateTime = regDateTime!!,
-        lastUpdateTime = lastUpdateTime!!
     )
 
     companion object {

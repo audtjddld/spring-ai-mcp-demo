@@ -42,4 +42,5 @@ logging:
     org.springframework.ai: TRACE
     org.springframework.web: TRACE
     org.springframework.web.reactive: TRACE
+    org.springframework.r2dbc: DEBUG
     io.r2dbc: DEBUG

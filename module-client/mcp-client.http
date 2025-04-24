@@ -2,3 +2,9 @@
 GET localhost:8000/v1/test?prompt=숙제가 얼마나 많이 등록되어 있나요?
 Accept: text/event-stream
 Connection: keep-alive
+
+
+### test2
+GET localhost:8000/v1/test?prompt=등록된 숙제는 어떤 것들이 있어?
+Accept: text/event-stream
+Connection: keep-alive
