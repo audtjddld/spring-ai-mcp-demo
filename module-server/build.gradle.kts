@@ -10,5 +10,5 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
     implementation("io.r2dbc:r2dbc-h2")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("io.r2dbc:r2dbc-h2")
 }

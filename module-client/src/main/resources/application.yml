@@ -8,7 +8,7 @@ spring:
       base-url: '${OPENAI_API_URL}'
       chat:
         options:
-          model: gpt-4-o
+          model: gpt-4o
     mcp:
       client:
         enabled: true
