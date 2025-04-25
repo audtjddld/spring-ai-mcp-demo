@@ -1,9 +1,11 @@
-package com.example.mcp.client.controller
+package com.example.mcp.client.web
 
+import com.example.mcp.client.web.model.TodoRequest
 import java.time.Duration
 import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.prompt.PromptTemplate
-import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.reactive.function.client.WebClientResponseException
@@ -12,15 +14,15 @@ import reactor.util.retry.Retry
 
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/v1/todo")
 class TodoController(
     private val chatClient: ChatClient,
 ) {
 
-    @GetMapping("test")
-    fun test(prompt: String): Flux<String>? {
+    @PostMapping("request")
+    fun test(@RequestBody request: TodoRequest): Flux<String>? {
 
-        val promptTemplate = PromptTemplate(prompt.trimIndent())
+        val promptTemplate = PromptTemplate(request.prompt.trimIndent())
 
         val pt = promptTemplate.create()
 
