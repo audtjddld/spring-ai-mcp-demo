@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # MCP Server using Spring Boot Java
 
 Spring Boot와 Java 21로 구축된 Model Context Protocol(MCP) 서버 구현입니다.   
@@ -304,10 +303,11 @@ MCP Client에는 Chat Model을 이용하여 프롬프트를 입력받습니다. 
 Boot Starter를 이용하여 properties에 내용을 입력하면 자동구성으로 설정이 됩니다.
 Reference에서는 비동기 논블록킹 방식을 선호합니다. 하지만, 비동기 논블록킹 방식은 사용자가 직접 구현해야 하므로, MCP 서버에서는 기본적인 Blocking 방식으로 작성하였습니다.
 SSE로 연결하기 위해서는 Protocol 지원이 필요한데, Spring Boot Starter Web은 지원하지 않습니다. 따라서 Webflux 라이브러리를 사용해야 합니다.
->>>>>>> Stashed changes
 
 ## 참고사이트
 
 - [MCP 공식 사이트](https://modelcontextprotocol.io)
 - [MCP 서버 Quick Start](https://modelcontextprotocol.io/quickstart/server)
 - [MCP 서버 Quick Start(Java)](https://modelcontextprotocol.io/sdk/java/mcp-server)
+- [MCP Server Boot Starters](https://docs.spring.io/spring-ai/reference/1.0/api/mcp/mcp-server-boot-starter-docs.html)
+- [MCP Client Boot Starters](https://docs.spring.io/spring-ai/reference/1.0/api/mcp/mcp-client-boot-starter-docs.html)

@@ -1,0 +1,25 @@
+### find all
+
+POST http://localhost:8080/mcp/messages?tool=findAll&sessionId=63ea1241-84bd-4a00-8cfb-a30d1965f582
+Accept: text/event-stream
+Connection: keep-alive
+
+
+### chat api
+POST http://localhost:8080/mcp/messages
+Content-Type: application/json
+Accept: application/json
+
+{
+  "jsonrpc": "2.0",
+  "method": "callTool",
+  "params": {
+    "tool": "save",
+    "arguments": {
+      "title": "HW1",
+      "description": "Desc1",
+      "date": "2025-04-20"
+    }
+  },
+  "id": 1
+}
