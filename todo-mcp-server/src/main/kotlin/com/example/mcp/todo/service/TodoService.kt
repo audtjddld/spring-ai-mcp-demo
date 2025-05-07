@@ -1,8 +1,8 @@
-package com.example.mcp.server.service
+package com.example.mcp.todo.service
 
-import com.example.mcp.server.domain.TodoEntity
-import com.example.mcp.server.domain.TodoModel
-import com.example.mcp.server.domain.TodoRepository
+import com.example.mcp.todo.domain.TodoEntity
+import com.example.mcp.todo.domain.TodoModel
+import com.example.mcp.todo.domain.TodoRepository
 import java.util.logging.Logger
 import org.springframework.ai.tool.annotation.Tool
 import org.springframework.ai.tool.annotation.ToolParam

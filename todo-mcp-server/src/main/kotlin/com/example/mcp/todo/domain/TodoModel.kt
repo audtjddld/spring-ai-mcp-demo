@@ -1,4 +1,4 @@
-package com.example.mcp.server.domain
+package com.example.mcp.todo.domain
 
 data class TodoModel(
     val id: Long,

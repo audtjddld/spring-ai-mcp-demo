@@ -1,4 +1,4 @@
-package com.example.mcp.server
+package com.example.mcp.todo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

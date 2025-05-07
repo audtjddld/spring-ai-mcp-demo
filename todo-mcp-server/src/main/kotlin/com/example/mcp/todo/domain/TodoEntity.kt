@@ -1,4 +1,4 @@
-package com.example.mcp.server.domain
+package com.example.mcp.todo.domain
 
 import java.time.LocalDateTime
 import org.springframework.data.annotation.Id
