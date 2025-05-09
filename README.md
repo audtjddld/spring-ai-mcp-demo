@@ -150,7 +150,7 @@ MCP Client에는 Chat Model을 이용하여 프롬프트를 입력받습니다. 
 
 #### 공통 내용
 
-Boot Starter를 이용하여 properties에 내용을 입력하면 자동구성으로 설정이 됩니다.
+properties에 변수들을 입력하면 Auto configuration으로 설정이 됩니다.
 Reference에서는 비동기 논블록킹 방식을 선호합니다. 하지만, 비동기 논블록킹 방식은 사용자가 직접 구현해야 하므로, MCP 서버에서는 기본적인 Blocking 방식으로 작성하였습니다.
 SSE로 연결하기 위해서는 Protocol 지원이 필요한데, Spring Boot Starter Web은 지원하지 않습니다. 따라서 Webflux 라이브러리를 사용해야 합니다.
 
