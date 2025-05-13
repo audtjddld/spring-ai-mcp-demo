@@ -8,8 +8,8 @@ import org.springframework.web.reactive.config.EnableWebFlux
 @EnableR2dbcRepositories
 @EnableWebFlux
 @SpringBootApplication
-class McpServerApplication
+class TodoServerApplication
 
 fun main(args: Array<String>) {
-    runApplication<McpServerApplication>(*args)
+    runApplication<TodoServerApplication>(*args)
 }

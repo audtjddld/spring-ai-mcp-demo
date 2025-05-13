@@ -6,5 +6,5 @@ rootProject.name = "spring-ai-mcp-example"
 
 include(
     "todo-mcp-server",
-    "my-mcp-client"
+    "my-mcp-client",
 )
