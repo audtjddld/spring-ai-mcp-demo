@@ -1,5 +1,5 @@
 package com.example.mcp.todo.domain
 
-import org.springframework.data.repository.reactive.ReactiveCrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 
-interface TodoRepository : ReactiveCrudRepository<TodoEntity, Long>
+interface TodoRepository : JpaRepository<TodoEntity, Long>
