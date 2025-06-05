@@ -1,5 +1,6 @@
 INSERT INTO todo (title, description, date, reg_date_time, last_update_time)
-VALUES ('Grocery Shopping', 'Buy milk, eggs, bread, and vegetables for the week.', '2025-04-25', NOW(), NOW()),
-       ('Team Meeting Preparation', 'Prepare slides and agenda for the weekly team sync.', '2025-04-26', NOW(), NOW()),
-       ('Complete Spring WebFlux Tutorial', 'Finish the reactive programming section and build a sample app.',
-        '2025-04-27', NOW(), NOW());
+VALUES ('프로젝트 시작', '프로젝트 시작을 위한 초기 회의.', '2025-03-15', '2025-03-01 10:00:00', '2025-03-01 10:00:00'),
+       ('디자인 검토', '팀과 함께 디자인 사양 검토.', '2025-03-20', '2025-03-05 14:00:00', '2025-03-05 14:00:00'),
+       ('개발 스프린트', '첫 번째 개발 스프린트 시작.', '2025-04-01', '2025-03-20 09:00:00', '2025-03-20 09:00:00'),
+       ('테스트 단계', '프로젝트 테스트 단계 시작.', '2025-04-15', '2025-04-01 11:00:00', '2025-04-01 11:00:00'),
+       ('프로젝트 출시', '프로젝트 공식 출시.', '2025-05-01', '2025-04-20 15:00:00', '2025-04-20 15:00:00');

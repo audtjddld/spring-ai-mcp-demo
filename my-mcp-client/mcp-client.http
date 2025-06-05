@@ -39,3 +39,24 @@ content-Type: application/json; charset=utf-8
 {
   "prompt": "25년 4월 24일에 어떤 일정이 있어?"
 }
+
+### 항공 날짜 조회 후 할일 등록
+POST localhost:8000/v1/todo/request
+Accept: text/event-stream
+Connection: keep-alive
+content-Type: application/json; charset=utf-8
+
+{
+  "prompt": "25년 4월 5일 항공편을 조회해주고 있으면 할일에 25년 4월 5일에 항공 스케줄을 포함해서 일정을 등록해줘"
+}
+
+
+### 4월 5일 할일 조회
+POST localhost:8000/v1/todo/request
+Accept: text/event-stream
+Connection: keep-alive
+content-Type: application/json; charset=utf-8
+
+{
+  "prompt": "25년 4월 5일 등록된 할일을 알려줘"
+}

@@ -18,8 +18,10 @@ spring:
         type: SYNC
         sse:
           connections:
-            mcp-homework-server:
+            todo-server:
               url: http://localhost:8080
+            flight-schedule-server:
+              url: http://localhost:8081
         toolcallback:
           enabled: true
 
