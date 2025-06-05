@@ -1,6 +1,9 @@
 plugins {
-    kotlin("jvm") version "1.9.10"
-    id("org.springframework.boot") version "3.4.4"
+    kotlin("jvm") version "1.9.20"
+    kotlin("kapt") version "1.9.20"
+    kotlin("plugin.allopen") version "1.9.20"
+    kotlin("plugin.spring") version "1.9.20" apply false
+    id("org.springframework.boot") version "3.4.4" apply false
     id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -9,7 +12,6 @@ version = "0.0.1-SNAPSHOT"
 
 allprojects {
     apply {
-        plugin("java")
         plugin("io.spring.dependency-management")
         plugin("kotlin")
     }
@@ -18,12 +20,12 @@ allprojects {
         mavenCentral()
     }
 
-    java {
-        toolchain {
-            languageVersion.set(JavaLanguageVersion.of(20))
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "21"
         }
     }
-
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
         systemProperty("spring.profiles.active", "test")
@@ -38,17 +40,11 @@ allprojects {
     }
 }
 
+
 subprojects {
     apply {
-        plugin("java")
         plugin("kotlin")
-    }
-
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            freeCompilerArgs = listOf("-Xjsr305=strict")
-            jvmTarget = "20"
-        }
+        plugin("org.jetbrains.kotlin.jvm")
     }
 
     dependencies {
