@@ -15,11 +15,13 @@ spring:
         name: mcp-client
         version: 1.0.0
         request-timeout: 30s
-        type: ASYNC
+        type: SYNC
         sse:
           connections:
-            mcp-homework-server:
+            todo-server:
               url: http://localhost:8080
+            flight-schedule-server:
+              url: http://localhost:8081
         toolcallback:
           enabled: true
 
