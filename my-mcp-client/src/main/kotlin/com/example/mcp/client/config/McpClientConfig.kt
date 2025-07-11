@@ -1,8 +1,9 @@
 package com.example.mcp.client.config
 
+import io.modelcontextprotocol.client.McpSyncClient
 import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor
-import org.springframework.ai.tool.ToolCallbackProvider
+import org.springframework.ai.mcp.SyncMcpToolCallbackProvider
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -12,10 +13,10 @@ class McpClientConfig {
     @Bean
     fun chatClient(
         chatClientBuilder: ChatClient.Builder,
-        tools: ToolCallbackProvider
+        mcpSyncClients: List<McpSyncClient>,
     ): ChatClient {
         return chatClientBuilder
-            .defaultTools(tools)
+            .defaultToolCallbacks(SyncMcpToolCallbackProvider(mcpSyncClients))
             .defaultAdvisors(SimpleLoggerAdvisor())
             .build()
     }

@@ -13,7 +13,14 @@ spring:
         version: 1.0.0
         type: SYNC
         sse-message-endpoint: /mcp/todo/messages
+        capabilities:
+          tool: true
+          resource: true
+          prompt: true
+          completion: true
+        instructions: "Manage todo items with the MCP server. You can create, update, delete, and list todos. Use tools for advanced operations."
 
+  
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driver-class-name: org.h2.Driver
@@ -43,28 +50,3 @@ logging:
     org.springframework.web: TRACE
     org.hibernate.SQL: debug
     org.hibernate.type: trace
-
-management:
-  server:
-    port: 8081
-  endpoints:
-    env:
-      enabled: true
-    web:
-      exposure:
-        include: "*,ai"
-      path-mapping:
-        health: health
-        info: info
-        env: env
-        metrics: metrics
-        prometheus: prometheus
-    jmx:
-      exposure:
-        include: metrics, mappings, heath
-  health:
-    db.enabled: false
-    redis.enabled: false
-    probes:
-      enabled: true
-    show-details: always

@@ -8,6 +8,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.119.Final:osx-aarch_64")
     implementation("org.springframework.ai:spring-ai-starter-mcp-client-webflux")
+//    implementation("org.springframework.boot:spring-boot-starter-web")
+//    implementation("org.springframework.ai:spring-ai-starter-mcp-client")
     implementation("org.springframework.ai:spring-ai-starter-model-openai")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.platform:junit-platform-launcher")

@@ -13,12 +13,21 @@ class FlightScheduleTool(
     private val flightScheduleRepository: FlightScheduleRepository,
 ) {
 
-    @Tool(name = "getAllSchedules", description = "모든 항공편 일정을 가져옵니다")
-    fun getAllSchedules(): List<FlightScheduleModel> {
-        return flightScheduleRepository.findAll()
-            .map {
-                it.toDomainModel()
-            }
+    @Tool(name = "getAllSchedules", description = "항공편 일정을 검색조건으로 조회합니다")
+    fun getAllSchedules(
+        @ToolParam(description = "항공기 번호 (부분 검색 가능)", required = false) flightNumber: String? = null,
+        @ToolParam(description = "출발 공항 코드 (부분 검색 가능)", required = false) departureAirport: String? = null,
+        @ToolParam(description = "도착 공항 코드 (부분 검색 가능)", required = false) arrivalAirport: String? = null,
+        @ToolParam(description = "항공사 (부분 검색 가능)", required = false) airline: String? = null,
+        @ToolParam(description = "항공편 상태 (정확한 일치)", required = false) status: String? = null
+    ): List<FlightScheduleModel> {
+        return flightScheduleRepository.findBySearchCriteria(
+            flightNumber = flightNumber,
+            departureAirport = departureAirport,
+            arrivalAirport = arrivalAirport,
+            airline = airline,
+            status = status
+        ).map { it.toDomainModel() }
     }
 
     @Tool(name = "getScheduleById", description = "ID로 항공편 일정을 가져옵니다")

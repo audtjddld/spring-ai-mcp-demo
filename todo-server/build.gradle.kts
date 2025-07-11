@@ -6,7 +6,6 @@ plugins {
 
 dependencies {
     implementation("org.springframework.ai:spring-ai-starter-mcp-server-webmvc")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

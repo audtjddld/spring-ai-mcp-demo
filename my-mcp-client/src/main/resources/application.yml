@@ -20,14 +20,13 @@ spring:
           connections:
             todo-server:
               url: http://localhost:8080
+              sse-endpoint: /sse
             flight-schedule-server:
               url: http://localhost:8081
-        toolcallback:
-          enabled: true
+              sse-endpoint: /sse
 
 server:
   port: 8000
-
 
 logging:
   level:

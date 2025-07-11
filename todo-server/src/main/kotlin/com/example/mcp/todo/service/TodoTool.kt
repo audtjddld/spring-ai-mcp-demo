@@ -6,14 +6,14 @@ import com.example.mcp.todo.domain.TodoRepository
 import java.util.logging.Logger
 import org.springframework.ai.tool.annotation.Tool
 import org.springframework.ai.tool.annotation.ToolParam
-import org.springframework.stereotype.Service
+import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 
-@Service
-class TodoService(
+@Component
+class TodoTool(
     private val todoRepository: TodoRepository,
 ) {
-    private val logger = Logger.getLogger(TodoService::class.java.name)
+    private val logger = Logger.getLogger(TodoTool::class.java.name)
 
     @Transactional
     @Tool(name = "save", description = "할일을 등록하는 기능을 제공합니다.")
@@ -21,9 +21,17 @@ class TodoService(
         return todoRepository.save(TodoEntity.of(todoModel.title, todoModel.description, todoModel.date))
     }
 
-    @Tool(name = "findAll", description = "할일을 전체 조회하는 기능을 제공합니다.")
-    fun findAll(): List<TodoModel> {
-        return todoRepository.findAll().map { it.toModel() }
+    @Tool(name = "findAll", description = "할일을 검색조건으로 조회하는 기능을 제공합니다.")
+    fun findAll(
+        @ToolParam(description = "제목 (부분 검색 가능)", required = false) title: String? = null,
+        @ToolParam(description = "설명 (부분 검색 가능)", required = false) description: String? = null,
+        @ToolParam(description = "날짜 (정확한 일치)", required = false) date: String? = null,
+    ): List<TodoModel> {
+        return todoRepository.findBySearchCriteria(
+            title = title,
+            description = description,
+            date = date
+        ).map { it.toModel() }
     }
 
     @Tool(name = "update", description = "할일을 수정하는 기능을 제공합니다.")
