@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class TodoMcpServerConfig {
     @Bean
-    fun homeworkToolCallbackProvider(todoService: TodoService): ToolCallbackProvider {
+    fun todoToolCallbackProvider(todoService: TodoService): ToolCallbackProvider {
         return MethodToolCallbackProvider
             .builder()
             .toolObjects(todoService)

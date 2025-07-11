@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration
 class McpFlightScheduleConfig {
 
     @Bean
-    fun flightScheduleToolToolCallbackProvider(flightScheduleTool: FlightScheduleTool): ToolCallbackProvider {
+    fun flightScheduleToolCallbackProvider(flightScheduleTool: FlightScheduleTool): ToolCallbackProvider {
         return MethodToolCallbackProvider
             .builder()
             .toolObjects(flightScheduleTool)

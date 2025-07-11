@@ -19,7 +19,7 @@ data class TodoEntity(
     @Column(name = "date")
     var date: String,
     @Column(name = "reg_date_time")
-    val regDateTime: LocalDateTime? = LocalDateTime.now(),
+    val createdDateTime: LocalDateTime? = LocalDateTime.now(),
     @Column(name = "last_update_time")
     val lastUpdateTime: LocalDateTime? = null,
 ) {
@@ -30,7 +30,7 @@ data class TodoEntity(
         lastUpdateTime = LocalDateTime.now()
     )
 
-    fun toHomework() = TodoModel(
+    fun toModel() = TodoModel(
         id = id!!,
         title = title,
         description = description,

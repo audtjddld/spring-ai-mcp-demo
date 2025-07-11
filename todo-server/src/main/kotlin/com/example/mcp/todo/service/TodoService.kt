@@ -23,20 +23,20 @@ class TodoService(
 
     @Tool(name = "findAll", description = "할일을 전체 조회하는 기능을 제공합니다.")
     fun findAll(): List<TodoModel> {
-        return todoRepository.findAll().map { it.toHomework() }
+        return todoRepository.findAll().map { it.toModel() }
     }
 
     @Tool(name = "update", description = "할일을 수정하는 기능을 제공합니다.")
     @Transactional
     fun update(
-        @ToolParam(description = "숙제 ID") id: Long,
+        @ToolParam(description = "할일 ID") id: Long,
         @ToolParam(description = "제목") title: String,
         @ToolParam(description = "설명") description: String,
         @ToolParam(description = "날짜") date: String,
     ): TodoEntity {
-        val existTodo = todoRepository.findById(id)
+        val existingTodo = todoRepository.findById(id)
 
-        return if (existTodo.isPresent) existTodo.get().update(title, description, date)
+        return if (existingTodo.isPresent) existingTodo.get().update(title, description, date)
         else throw IllegalArgumentException("업데이트 실패")
     }
 
