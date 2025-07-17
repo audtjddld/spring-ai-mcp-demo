@@ -1,13 +1,33 @@
 {
   "mcpServers": {
-    "homework-server": {
+    "todo-server": {
       "command": "java",
       "args": [
         "-Dspring.ai.mcp.server.stdio=true",
         "-Dspring.main.web-application-type=none",
         "-Dlogging.pattern.console=",
         "-jar",
-        "../module-server/build/libs/module-server.jar"
+        "../todo-server/build/libs/todo-server.jar"
+      ]
+    },
+    "flight-schedule-server": {
+      "command": "java",
+      "args": [
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-Dspring.main.web-application-type=none",
+        "-Dlogging.pattern.console=",
+        "-jar",
+        "../flight-schedule-server/build/libs/flight-schedule-server.jar"
+      ]
+    },
+    "order-server": {
+      "command": "java",
+      "args": [
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-Dspring.main.web-application-type=none",
+        "-Dlogging.pattern.console=",
+        "-jar",
+        "../order-server/build/libs/order-server.jar"
       ]
     }
   }

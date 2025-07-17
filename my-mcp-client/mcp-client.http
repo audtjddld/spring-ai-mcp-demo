@@ -71,3 +71,24 @@ content-Type: application/json; charset=utf-8
 {
   "prompt": "항공권 일정 조회 후 할일에 등록해주는 기능을 만들고 싶은데 현재 가능한지 확인해줄래?"
 }
+
+### 항공권 일정 조회 후 주문 후 할일 등록
+POST localhost:8000/v1/todo/request
+Accept: text/event-stream
+Connection: keep-alive
+content-Type: application/json; charset=utf-8
+
+{
+  "prompt": "25년 4월 25일 방콕으로 가는 비행기편이 있으면 좌석2개를 주문해주고, 할일에 주문 정보를 등록해줘 (주문은 1개만 생성해야해)"
+}
+
+
+### 주문 정보 확인
+POST localhost:8000/v1/todo/request
+Accept: text/event-stream
+Connection: keep-alive
+content-Type: application/json; charset=utf-8
+
+{
+  "prompt": "주문 아이디 1번에 대해 알려줘"
+}

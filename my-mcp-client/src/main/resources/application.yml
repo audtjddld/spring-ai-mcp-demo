@@ -24,6 +24,9 @@ spring:
             flight-schedule-server:
               url: http://localhost:8081
               sse-endpoint: /sse
+            order-server:
+              url: http://localhost:8083
+              sse-endpoint: /sse
 
 server:
   port: 8000

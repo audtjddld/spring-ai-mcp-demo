@@ -5,6 +5,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @Entity(name = "flight_schedule")
@@ -26,6 +27,12 @@ data class FlightScheduleEntity(
     val airline: String,
     @Column(name = "status")
     val status: String,
+    @Column(name = "price")
+    val price: BigDecimal,
+    @Column(name = "available_seats")
+    val availableSeats: Int,
+    @Column(name = "total_seats")
+    val totalSeats: Int,
     @Column(name = "created_at")
     val createdAt: LocalDateTime = LocalDateTime.now(),
     @Column(name = "updated_at")
@@ -41,6 +48,9 @@ data class FlightScheduleEntity(
             arrivalTime = this.arrivalTime,
             airline = this.airline,
             status = this.status,
+            price = this.price,
+            availableSeats = this.availableSeats,
+            totalSeats = this.totalSeats,
             createdAt = this.createdAt,
             updatedAt = this.updatedAt
         )
